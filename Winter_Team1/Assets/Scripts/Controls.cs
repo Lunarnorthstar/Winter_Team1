@@ -24,7 +24,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""id"": ""d2d67d9f-6b4c-4b72-b0f6-76b306c2d60c"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press(pressPoint=1)""
                 },
                 {
                     ""name"": ""Remove"",
@@ -32,29 +32,26 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""id"": ""38b0a378-4470-42dc-bbb7-425173b0c851"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press(pressPoint=1)""
                 },
                 {
-                    ""name"": ""Rotate"",
+                    ""name"": ""RotateClock"",
                     ""type"": ""Button"",
                     ""id"": ""14625e2b-5592-4077-ae43-1a2ddf8d04b9"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press(pressPoint=1)""
+                },
+                {
+                    ""name"": ""RotateCounter"",
+                    ""type"": ""Button"",
+                    ""id"": ""e944380f-5f9d-4da3-bca8-cca51515a9e1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(pressPoint=1)""
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""3dfbcf75-2825-4beb-8dbc-5c0a86066aa8"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Place"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": """",
                     ""id"": ""7cf919fb-cfe6-4bf4-bca8-4fa0c8385507"",
@@ -68,91 +65,36 @@ public class @Controls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""8ad9f080-b71f-42ee-9169-bb8fe2b00514"",
-                    ""path"": ""<Mouse>/rightButton"",
+                    ""id"": ""7dd420d0-f59a-4f5e-a38b-a9fc0e724817"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Remove"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""7dd420d0-f59a-4f5e-a38b-a9fc0e724817"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Remove"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""Mouse"",
-                    ""id"": ""b40a6003-8cfb-4c8b-b6f9-fe0e6624f1de"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Rotate"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""a4c6d303-d2ec-415c-aec1-fbb7f7ffbb93"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Rotate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""8f4f5ddd-b749-4213-984d-b03db41d662c"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Rotate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Controller"",
-                    ""id"": ""cdd6842d-f9eb-4429-83a9-b9dffa5a5eb7"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Rotate"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""07ee575c-4490-46ea-a795-5ba5a1617e9d"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Rotate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""eefc23b0-a55a-4042-86cd-70cf91a0693d"",
+                    ""id"": ""f97a087e-068b-4ef7-b800-cbb2364fdd55"",
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Rotate"",
+                    ""action"": ""RotateClock"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d0e305b0-9eab-40fc-b727-530d56702c38"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""RotateCounter"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -757,7 +699,8 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Place = m_Player.FindAction("Place", throwIfNotFound: true);
         m_Player_Remove = m_Player.FindAction("Remove", throwIfNotFound: true);
-        m_Player_Rotate = m_Player.FindAction("Rotate", throwIfNotFound: true);
+        m_Player_RotateClock = m_Player.FindAction("RotateClock", throwIfNotFound: true);
+        m_Player_RotateCounter = m_Player.FindAction("RotateCounter", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -821,14 +764,16 @@ public class @Controls : IInputActionCollection, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Place;
     private readonly InputAction m_Player_Remove;
-    private readonly InputAction m_Player_Rotate;
+    private readonly InputAction m_Player_RotateClock;
+    private readonly InputAction m_Player_RotateCounter;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
         public PlayerActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Place => m_Wrapper.m_Player_Place;
         public InputAction @Remove => m_Wrapper.m_Player_Remove;
-        public InputAction @Rotate => m_Wrapper.m_Player_Rotate;
+        public InputAction @RotateClock => m_Wrapper.m_Player_RotateClock;
+        public InputAction @RotateCounter => m_Wrapper.m_Player_RotateCounter;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -844,9 +789,12 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Remove.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRemove;
                 @Remove.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRemove;
                 @Remove.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRemove;
-                @Rotate.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotate;
-                @Rotate.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotate;
-                @Rotate.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotate;
+                @RotateClock.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateClock;
+                @RotateClock.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateClock;
+                @RotateClock.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateClock;
+                @RotateCounter.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateCounter;
+                @RotateCounter.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateCounter;
+                @RotateCounter.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateCounter;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -857,9 +805,12 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Remove.started += instance.OnRemove;
                 @Remove.performed += instance.OnRemove;
                 @Remove.canceled += instance.OnRemove;
-                @Rotate.started += instance.OnRotate;
-                @Rotate.performed += instance.OnRotate;
-                @Rotate.canceled += instance.OnRotate;
+                @RotateClock.started += instance.OnRotateClock;
+                @RotateClock.performed += instance.OnRotateClock;
+                @RotateClock.canceled += instance.OnRotateClock;
+                @RotateCounter.started += instance.OnRotateCounter;
+                @RotateCounter.performed += instance.OnRotateCounter;
+                @RotateCounter.canceled += instance.OnRotateCounter;
             }
         }
     }
@@ -1018,7 +969,8 @@ public class @Controls : IInputActionCollection, IDisposable
     {
         void OnPlace(InputAction.CallbackContext context);
         void OnRemove(InputAction.CallbackContext context);
-        void OnRotate(InputAction.CallbackContext context);
+        void OnRotateClock(InputAction.CallbackContext context);
+        void OnRotateCounter(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

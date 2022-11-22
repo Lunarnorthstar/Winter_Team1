@@ -11,7 +11,7 @@
                     "id": "d2d67d9f-6b4c-4b72-b0f6-76b306c2d60c",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press(pressPoint=1)"
                 },
                 {
                     "name": "Remove",
@@ -19,29 +19,26 @@
                     "id": "38b0a378-4470-42dc-bbb7-425173b0c851",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press(pressPoint=1)"
                 },
                 {
-                    "name": "Rotate",
+                    "name": "RotateClock",
                     "type": "Button",
                     "id": "14625e2b-5592-4077-ae43-1a2ddf8d04b9",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press(pressPoint=1)"
+                },
+                {
+                    "name": "RotateCounter",
+                    "type": "Button",
+                    "id": "e944380f-5f9d-4da3-bca8-cca51515a9e1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(pressPoint=1)"
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "3dfbcf75-2825-4beb-8dbc-5c0a86066aa8",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Place",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "7cf919fb-cfe6-4bf4-bca8-4fa0c8385507",
@@ -55,91 +52,36 @@
                 },
                 {
                     "name": "",
-                    "id": "8ad9f080-b71f-42ee-9169-bb8fe2b00514",
-                    "path": "<Mouse>/rightButton",
+                    "id": "7dd420d0-f59a-4f5e-a38b-a9fc0e724817",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "Gamepad",
                     "action": "Remove",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "7dd420d0-f59a-4f5e-a38b-a9fc0e724817",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Remove",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "Mouse",
-                    "id": "b40a6003-8cfb-4c8b-b6f9-fe0e6624f1de",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Rotate",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "a4c6d303-d2ec-415c-aec1-fbb7f7ffbb93",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Rotate",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "8f4f5ddd-b749-4213-984d-b03db41d662c",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Rotate",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Controller",
-                    "id": "cdd6842d-f9eb-4429-83a9-b9dffa5a5eb7",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Rotate",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "07ee575c-4490-46ea-a795-5ba5a1617e9d",
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Rotate",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "eefc23b0-a55a-4042-86cd-70cf91a0693d",
+                    "id": "f97a087e-068b-4ef7-b800-cbb2364fdd55",
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Rotate",
+                    "action": "RotateClock",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d0e305b0-9eab-40fc-b727-530d56702c38",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "RotateCounter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

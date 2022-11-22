@@ -499,6 +499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72bceec7818c9e54fa4e853acbe9df75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cursor: {fileID: 1933140608}
   partPrefabs:
   - {fileID: 8138041023432239749, guid: fac05e1f9b9d2c64396537424536ae58, type: 3}
   - {fileID: 3739840023103633090, guid: 4b87c57900a389541b9ce3d183bbf3ef, type: 3}
@@ -507,7 +508,7 @@ MonoBehaviour:
   maxParts: 6
   currentParts: 0
   offset: -0.2
-  rotationDegrees: 45
+  rotationDegrees: 10
 --- !u!4 &475267190
 Transform:
   m_ObjectHideFlags: 0
@@ -535,7 +536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 5b83acfd8b9bdf04f8797f96ef6ac2b8, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 1596597481}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -546,8 +547,112 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 475267189}
+        m_TargetAssemblyTypeName: SnowmanBuild, Assembly-CSharp
+        m_MethodName: PlacePart
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d2d67d9f-6b4c-4b72-b0f6-76b306c2d60c
+    m_ActionName: Player/Place[/Mouse/leftButton,/VirtualMouse/leftButton,/VirtualMouse1/leftButton,/SwitchProControllerHID/buttonEast]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 475267189}
+        m_TargetAssemblyTypeName: SnowmanBuild, Assembly-CSharp
+        m_MethodName: RemovePart
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 38b0a378-4470-42dc-bbb7-425173b0c851
+    m_ActionName: Player/Remove[/Mouse/rightButton,/VirtualMouse/rightButton,/VirtualMouse1/rightButton,/SwitchProControllerHID/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 475267189}
+        m_TargetAssemblyTypeName: SnowmanBuild, Assembly-CSharp
+        m_MethodName: RotatePartClockwise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 14625e2b-5592-4077-ae43-1a2ddf8d04b9
+    m_ActionName: Player/Rotate[/Keyboard/a,/Keyboard/d,/SwitchProControllerHID/leftTrigger,/SwitchProControllerHID/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8467340f-683f-42ef-a2de-0a37a2654fb5
+    m_ActionName: UI/Navigate[/SwitchProControllerHID/leftStick/up,/SwitchProControllerHID/rightStick/up,/SwitchProControllerHID/leftStick/down,/SwitchProControllerHID/rightStick/down,/SwitchProControllerHID/leftStick/left,/SwitchProControllerHID/rightStick/left,/SwitchProControllerHID/leftStick/right,/SwitchProControllerHID/rightStick/right,/SwitchProControllerHID/dpad,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b8f3468e-d8f0-49e0-ac0e-9e22956ffdb8
+    m_ActionName: UI/Submit[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 20a04df6-4fbd-4ae6-985a-8ed43f1d42a5
+    m_ActionName: UI/Cancel[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 19962b0f-3448-493f-a26f-2c15826f3ed6
+    m_ActionName: UI/Point[/Mouse/position,/VirtualMouse/position,/VirtualMouse1/position,/VirtualMouse/position,/VirtualMouse1/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 66d0b3e5-e47e-423d-96b3-28a9e79ba17c
+    m_ActionName: UI/Click[/Mouse/leftButton,/VirtualMouse/leftButton,/VirtualMouse1/leftButton,/SwitchProControllerHID/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 945d48df-c6be-4002-8ef9-2ab95b673635
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll,/VirtualMouse/scroll,/VirtualMouse1/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 476c9736-42d6-4a63-82fb-756410bfd88a
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton,/VirtualMouse/middleButton,/VirtualMouse1/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 62f7caa5-150f-48ac-80fe-c1b56b545a6d
+    m_ActionName: UI/RightClick[/Mouse/rightButton,/VirtualMouse/rightButton,/VirtualMouse1/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6eabb7b6-dafd-4874-bcf4-28094597b61c
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1862dbc8-bd91-41a0-8b0e-5ee4c772cc8c
+    m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 475267189}
+        m_TargetAssemblyTypeName: SnowmanBuild, Assembly-CSharp
+        m_MethodName: RotatePartCounterclockwise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e944380f-5f9d-4da3-bca8-cca51515a9e1
+    m_ActionName: Player/RotateCounter[/SwitchProControllerHID/leftTrigger]
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
