@@ -42,17 +42,12 @@ public class SnowmanBuild : MonoBehaviour
     {
         if (context.performed)
         {
-
             GameObject[] bodySegments = GameObject.FindGameObjectsWithTag("Body"); //Get all the placed body segments
             for (int i = 0; i < bodySegments.Length; i++) //For each one...
             {
                 Vector3 clickPos = Camera.main.ScreenToWorldPoint(cursor.transform.position); //Get the mouse position
                 clickPos.z = offset;
-                if (math.distance(clickPos.x, bodySegments[i].transform.position.x) <
-                    bodySegments[i].transform.localScale.x / 2 &&
-                    math.distance(clickPos.y, bodySegments[i].transform.position.y) <
-                    bodySegments[i].transform.localScale.y / 2 &&
-                    currentParts < maxParts) //if clicking within the bounds of a body segment...
+                if (previewFab.GetComponent<ObjectPlaceCheck>().valid && currentParts < maxParts) //if clicking within the bounds of a body segment...
                 {
                     Instantiate(partPrefabs[selectedPart], clickPos, Quaternion.Euler(0, 0, storedRotation)); //Instantiate it
                     currentParts++; //Add one to the current parts
@@ -87,8 +82,6 @@ public class SnowmanBuild : MonoBehaviour
         }
         
     }
-
-    private Vector2 inputVector;
     public void RotatePartClockwise(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -117,5 +110,6 @@ public class SnowmanBuild : MonoBehaviour
         Destroy(previewFab);
         previewFab = Instantiate(partPrefabs[i], mousePos, new Quaternion(0, 0, storedRotation, 0));
         previewFab.tag = "Preview";
+        previewFab.AddComponent<ObjectPlaceCheck>();
     }
 }
