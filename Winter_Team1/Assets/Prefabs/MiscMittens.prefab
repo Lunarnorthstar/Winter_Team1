@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -2983082917522446396}
   m_Layer: 0
   m_Name: MiscMittens
-  m_TagString: Part
+  m_TagString: Glove
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

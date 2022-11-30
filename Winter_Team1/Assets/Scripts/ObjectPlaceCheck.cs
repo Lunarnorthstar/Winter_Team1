@@ -9,19 +9,41 @@ public class ObjectPlaceCheck : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log(other.tag);
-        if (other.tag == "Body")
+        if (!gameObject.CompareTag("PreviewGlove")) //If you're not a glove
         {
-            valid = true;
-            Debug.Log(valid);
+            if (other.CompareTag("Body")) //If you're within proper distance of a body segment...
+            {
+                valid = true; //Then you're valid.
+                //Debug.Log(valid);
+            }
         }
+        else if (gameObject.CompareTag("PreviewGlove")) //If you're a glove...
+        {
+            if (other.CompareTag("Arm")) //if you're within proper distance of an arm segment...
+            {
+                valid = true; //Then you're valid.
+            }
+        }
+        
+        
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "Body" || other.tag == "Part")
+        if (!gameObject.CompareTag("PreviewGlove"))
         {
-            valid = false;
+            if (other.CompareTag("Body"))
+            {
+                valid = false;
+                //Debug.Log(valid);
+            }
+        }
+        else if (gameObject.CompareTag("PreviewGlove"))
+        {
+            if (other.CompareTag("Arm"))
+            {
+                valid = false;
+            }
         }
     }
 }

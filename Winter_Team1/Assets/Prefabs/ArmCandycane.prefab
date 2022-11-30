@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -1750330373516027299}
   m_Layer: 0
   m_Name: ArmCandycane
-  m_TagString: Part
+  m_TagString: Arm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
