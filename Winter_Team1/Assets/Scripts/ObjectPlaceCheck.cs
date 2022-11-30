@@ -19,7 +19,7 @@ public class ObjectPlaceCheck : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "Body")
+        if (other.tag == "Body" || other.tag == "Part")
         {
             valid = false;
         }

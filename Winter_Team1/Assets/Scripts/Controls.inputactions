@@ -27,12 +27,20 @@
                     "id": "14625e2b-5592-4077-ae43-1a2ddf8d04b9",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press(pressPoint=1)"
+                    "interactions": "Hold(duration=0.1)"
                 },
                 {
                     "name": "RotateCounter",
                     "type": "Button",
                     "id": "e944380f-5f9d-4da3-bca8-cca51515a9e1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold(duration=0.1)"
+                },
+                {
+                    "name": "Flip",
+                    "type": "Button",
+                    "id": "882449a9-3e73-4c02-b78a-708d8451a3da",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press(pressPoint=1)"
@@ -80,6 +88,17 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "RotateCounter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "afda32b9-5311-4f97-886b-bc006124245c",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Flip",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

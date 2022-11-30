@@ -40,12 +40,20 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""id"": ""14625e2b-5592-4077-ae43-1a2ddf8d04b9"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press(pressPoint=1)""
+                    ""interactions"": ""Hold(duration=0.1)""
                 },
                 {
                     ""name"": ""RotateCounter"",
                     ""type"": ""Button"",
                     ""id"": ""e944380f-5f9d-4da3-bca8-cca51515a9e1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold(duration=0.1)""
+                },
+                {
+                    ""name"": ""Flip"",
+                    ""type"": ""Button"",
+                    ""id"": ""882449a9-3e73-4c02-b78a-708d8451a3da"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press(pressPoint=1)""
@@ -93,6 +101,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""RotateCounter"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""afda32b9-5311-4f97-886b-bc006124245c"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Flip"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -701,6 +720,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Player_Remove = m_Player.FindAction("Remove", throwIfNotFound: true);
         m_Player_RotateClock = m_Player.FindAction("RotateClock", throwIfNotFound: true);
         m_Player_RotateCounter = m_Player.FindAction("RotateCounter", throwIfNotFound: true);
+        m_Player_Flip = m_Player.FindAction("Flip", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -766,6 +786,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Remove;
     private readonly InputAction m_Player_RotateClock;
     private readonly InputAction m_Player_RotateCounter;
+    private readonly InputAction m_Player_Flip;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -774,6 +795,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Remove => m_Wrapper.m_Player_Remove;
         public InputAction @RotateClock => m_Wrapper.m_Player_RotateClock;
         public InputAction @RotateCounter => m_Wrapper.m_Player_RotateCounter;
+        public InputAction @Flip => m_Wrapper.m_Player_Flip;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -795,6 +817,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @RotateCounter.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateCounter;
                 @RotateCounter.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateCounter;
                 @RotateCounter.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateCounter;
+                @Flip.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFlip;
+                @Flip.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFlip;
+                @Flip.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFlip;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -811,6 +836,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @RotateCounter.started += instance.OnRotateCounter;
                 @RotateCounter.performed += instance.OnRotateCounter;
                 @RotateCounter.canceled += instance.OnRotateCounter;
+                @Flip.started += instance.OnFlip;
+                @Flip.performed += instance.OnFlip;
+                @Flip.canceled += instance.OnFlip;
             }
         }
     }
@@ -971,6 +999,7 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnRemove(InputAction.CallbackContext context);
         void OnRotateClock(InputAction.CallbackContext context);
         void OnRotateCounter(InputAction.CallbackContext context);
+        void OnFlip(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

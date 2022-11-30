@@ -19,20 +19,27 @@ public class SnowmanBuild : MonoBehaviour
     [SerializeField] private int currentParts = 0;
     private int selectedPart = -1;
     [Space] [Space] [Tooltip("The Z position of the placed part")] public float offset = -0.2f;
-    [Space] public float rotationDegrees = 45;
+    [Space] [Tooltip("In Degrees per second")] public float rotationDegrees = 45;
+
+    private int rotateDir = 0;
+    
     private float storedRotation = 0;
+    private bool flip = false;
 
     // Update is called once per frame
 
     void Update()
     {
-
+        storedRotation += (rotationDegrees * rotateDir) * Time.deltaTime; //I hate new input system. The fact that I need to jury rig a continuous action is stupid.
+        
+        
         if (previewFab != null)
         {
             previewFab.transform.position = new Vector3(Camera.main.ScreenToWorldPoint(cursor.transform.position).x,
                 Camera.main.ScreenToWorldPoint(cursor.transform.position).y, offset);
             
             previewFab.transform.rotation =  Quaternion.Euler(0, 0, storedRotation);
+            previewFab.GetComponent<SpriteRenderer>().flipX = flip;
         }
 
         displayText.text = "Parts: " + currentParts + " / " + maxParts;
@@ -49,7 +56,11 @@ public class SnowmanBuild : MonoBehaviour
                 clickPos.z = offset;
                 if (previewFab.GetComponent<ObjectPlaceCheck>().valid && currentParts < maxParts) //if clicking within the bounds of a body segment...
                 {
-                    Instantiate(partPrefabs[selectedPart], clickPos, Quaternion.Euler(0, 0, storedRotation)); //Instantiate it
+                    GameObject newPart = Instantiate(partPrefabs[selectedPart], gameObject.transform); //Instantiate it
+                    newPart.transform.position = clickPos; //Move it
+                    newPart.transform.Rotate(0, 0, storedRotation); //Rotate it
+                    newPart.GetComponent<SpriteRenderer>().flipX = flip; //Flip it
+                    //Bop it. Uh, I mean...
                     currentParts++; //Add one to the current parts
                     break; //Stop checking
                 }
@@ -86,7 +97,12 @@ public class SnowmanBuild : MonoBehaviour
     {
         if (context.performed)
         {
-            storedRotation += rotationDegrees;
+            rotateDir = 1;
+        }
+
+        if (context.canceled)
+        {
+            rotateDir = 0;
         }
         
     }
@@ -95,11 +111,21 @@ public class SnowmanBuild : MonoBehaviour
     {
         if (context.performed)
         {
-            
-            storedRotation -= rotationDegrees;
-
+            rotateDir = -1;
         }
         
+        if (context.canceled)
+        {
+            rotateDir = 0;
+        }
+    }
+
+    public void flipPart(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            flip = !flip;
+        }
     }
 
     public void ButtonInput(int i)
