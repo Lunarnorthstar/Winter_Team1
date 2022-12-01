@@ -57,6 +57,22 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press(pressPoint=1)""
+                },
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""3e092df7-ab6b-4f9a-90b0-1f5a5ab27345"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(pressPoint=1)""
+                },
+                {
+                    ""name"": ""Grab"",
+                    ""type"": ""Button"",
+                    ""id"": ""de665151-23d1-48ea-9401-78734ef26586"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(pressPoint=1)""
                 }
             ],
             ""bindings"": [
@@ -112,6 +128,28 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Flip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""da90b568-e5a9-41f5-a620-ee213c14c852"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""83de14af-0b53-4438-9a6e-eeeff26bf521"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Grab"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -721,6 +759,8 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Player_RotateClock = m_Player.FindAction("RotateClock", throwIfNotFound: true);
         m_Player_RotateCounter = m_Player.FindAction("RotateCounter", throwIfNotFound: true);
         m_Player_Flip = m_Player.FindAction("Flip", throwIfNotFound: true);
+        m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
+        m_Player_Grab = m_Player.FindAction("Grab", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -787,6 +827,8 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_RotateClock;
     private readonly InputAction m_Player_RotateCounter;
     private readonly InputAction m_Player_Flip;
+    private readonly InputAction m_Player_Move;
+    private readonly InputAction m_Player_Grab;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -796,6 +838,8 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @RotateClock => m_Wrapper.m_Player_RotateClock;
         public InputAction @RotateCounter => m_Wrapper.m_Player_RotateCounter;
         public InputAction @Flip => m_Wrapper.m_Player_Flip;
+        public InputAction @Move => m_Wrapper.m_Player_Move;
+        public InputAction @Grab => m_Wrapper.m_Player_Grab;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -820,6 +864,12 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Flip.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFlip;
                 @Flip.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFlip;
                 @Flip.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFlip;
+                @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
+                @Grab.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrab;
+                @Grab.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrab;
+                @Grab.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrab;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -839,6 +889,12 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Flip.started += instance.OnFlip;
                 @Flip.performed += instance.OnFlip;
                 @Flip.canceled += instance.OnFlip;
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
+                @Grab.started += instance.OnGrab;
+                @Grab.performed += instance.OnGrab;
+                @Grab.canceled += instance.OnGrab;
             }
         }
     }
@@ -1000,6 +1056,8 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnRotateClock(InputAction.CallbackContext context);
         void OnRotateCounter(InputAction.CallbackContext context);
         void OnFlip(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
+        void OnGrab(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

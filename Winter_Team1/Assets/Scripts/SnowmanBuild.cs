@@ -13,11 +13,15 @@ public class SnowmanBuild : MonoBehaviour
     
     public GameObject cursor; //The cursor.
     public GameObject[] partPrefabs; //An array of all the prefabs of parts
-    private GameObject previewFab; //The gameobject used to display the preview of the part you're placing
-    public Text displayText; //The text that displays the part count
+    public GameObject previewFab; //The gameobject used to display the preview of the part you're placing
     [Space]
-    public int maxParts = 6; //The maximum number of parts that can be placed
-    [SerializeField] private int currentParts = 0; //The number of currently placed parts
+    public GameObject displayWeight; //The text that displays the part count
+    public GameObject displayHealth;
+    public GameObject displaySpeed;
+    public GameObject displayAttack;
+    [Space]
+    public float maxParts = 6; //The maximum number of parts that can be placed
+    [SerializeField] private float currentParts = 0; //The number of currently placed parts
     private int selectedPart = -1; //Which part you are ready to place
     [Space] [Space] [Tooltip("What will be the Z position of the placed part")] public float offset = -0.2f;
     [Space] [Tooltip("Rotation speed in Degrees per second")] public float rotationDegrees = 45;
@@ -42,7 +46,30 @@ public class SnowmanBuild : MonoBehaviour
             previewFab.GetComponent<SpriteRenderer>().flipX = flip; //If it should be flipped, flip it.
         }
 
-        displayText.text = "Parts: " + currentParts + " / " + maxParts; //Generate the text for the UI element displaying part counts.
+        float partRatio =  currentParts/maxParts;
+
+
+        float totalHealth = 0;
+        float totalSpeed = 125;
+        float totalAttack = 0;
+        GameObject[] allParts = FindGameObjectsWithTags("Part", "Arm", "Glove");
+        foreach (var part in allParts)
+        {
+            totalHealth += part.GetComponent<PartStatHandler>().durability;
+            totalSpeed += part.GetComponent<PartStatHandler>().speed;
+            totalAttack += part.GetComponent<PartStatHandler>().attack;
+        }
+
+        totalSpeed /= 500;
+        totalHealth /= 100;
+        totalAttack /= 100;
+        
+        
+        displayWeight.GetComponent<RectTransform>().localScale = new Vector3(partRatio, 1, 1);
+        displayHealth.GetComponent<RectTransform>().localScale = new Vector3(totalHealth, 1, 1);
+        displaySpeed.GetComponent<RectTransform>().localScale = new Vector3(totalSpeed, 1, 1);
+        displayAttack.GetComponent<RectTransform>().localScale = new Vector3(totalAttack, 1, 1);
+        
     }
 
     public void PlacePart(InputAction.CallbackContext context)
@@ -62,7 +89,7 @@ public class SnowmanBuild : MonoBehaviour
                     if (previewFab.tag == "PreviewGlove") //Gloves have special logic. If it's a glove...
                     {
                         GameObject[] arms = GameObject.FindGameObjectsWithTag("Arm"); //Find all the objects tagged as arm.
-                        GameObject parent = arms[1]; //Initialize the variable that stores the arm the glove will be attached to. Start at 1 to avoid nullreference shenanigans.
+                        GameObject parent = arms[0]; //Initialize the variable that stores the arm the glove will be attached to. Start at 1 to avoid nullreference shenanigans.
                         
                         foreach (GameObject part in arms) //I have a newfound love for Foreach statements. They read very well, practically self-explanatory.
                         {
@@ -162,9 +189,17 @@ public class SnowmanBuild : MonoBehaviour
         previewFab.tag = String.Concat("Preview" + previewFab.tag); //Change its tag. This is so you don't delete it.
         previewFab.AddComponent<ObjectPlaceCheck>(); //Give it a special component.
     }
-    
-    
-    
+
+
+    public void CleanUp()
+    {
+        GameObject[] parts = FindGameObjectsWithTags("Glove", "Arm", "Part");
+
+        foreach (GameObject part in parts)
+        {
+            Destroy(part.GetComponent<Rigidbody2D>());
+        }
+    }
     
     
     

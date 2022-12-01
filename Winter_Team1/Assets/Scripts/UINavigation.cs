@@ -8,6 +8,7 @@ public class UINavigation : MonoBehaviour
     public GameObject noseButtons;
     public GameObject armButtons;
     public GameObject miscButtons;
+    public GameObject gloveButtons;
     
     
     
@@ -16,15 +17,17 @@ public class UINavigation : MonoBehaviour
     {
         switch (input)
         {
-            case "Eye": eyeButtons.SetActive(true); noseButtons.SetActive(false); armButtons.SetActive(false); miscButtons.SetActive(false);
+            case "Eye": eyeButtons.SetActive(true); noseButtons.SetActive(false); armButtons.SetActive(false); miscButtons.SetActive(false); gloveButtons.SetActive(false);
                 break;
-            case "Nose": eyeButtons.SetActive(false); noseButtons.SetActive(true); armButtons.SetActive(false); miscButtons.SetActive(false);
+            case "Nose": eyeButtons.SetActive(false); noseButtons.SetActive(true); armButtons.SetActive(false); miscButtons.SetActive(false); gloveButtons.SetActive(false);
                 break;
-            case "Arm": eyeButtons.SetActive(false); noseButtons.SetActive(false); armButtons.SetActive(true); miscButtons.SetActive(false);
+            case "Arm": eyeButtons.SetActive(false); noseButtons.SetActive(false); armButtons.SetActive(true); miscButtons.SetActive(false); gloveButtons.SetActive(false);
                 break;
-            case "Misc": eyeButtons.SetActive(false); noseButtons.SetActive(false); armButtons.SetActive(false); miscButtons.SetActive(true);
+            case "Misc": eyeButtons.SetActive(false); noseButtons.SetActive(false); armButtons.SetActive(false); miscButtons.SetActive(true); gloveButtons.SetActive(false);
                 break;
-            default: eyeButtons.SetActive(true); noseButtons.SetActive(false); armButtons.SetActive(false); miscButtons.SetActive(false); Debug.Log("Uh... something broke? Make sure the string is right. Remember, Case Sensitive!");
+            case "Glove": eyeButtons.SetActive(false); noseButtons.SetActive(false); armButtons.SetActive(false); miscButtons.SetActive(false); gloveButtons.SetActive(true);
+                break;
+            default: eyeButtons.SetActive(false); noseButtons.SetActive(false); armButtons.SetActive(false); miscButtons.SetActive(false); Debug.Log("Uh... something broke? Make sure the string is right. Remember, Case Sensitive!");
                 break;
         }
     }

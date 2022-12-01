@@ -44,6 +44,22 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press(pressPoint=1)"
+                },
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "3e092df7-ab6b-4f9a-90b0-1f5a5ab27345",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "Press(pressPoint=1)"
+                },
+                {
+                    "name": "Grab",
+                    "type": "Button",
+                    "id": "de665151-23d1-48ea-9401-78734ef26586",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(pressPoint=1)"
                 }
             ],
             "bindings": [
@@ -99,6 +115,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Flip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "da90b568-e5a9-41f5-a620-ee213c14c852",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "83de14af-0b53-4438-9a6e-eeeff26bf521",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Grab",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

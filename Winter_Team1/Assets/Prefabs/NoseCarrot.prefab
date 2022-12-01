@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3739840023103633091}
   - component: {fileID: -1883459596040303462}
   - component: {fileID: -2983082917522446396}
+  - component: {fileID: -604407988777128172}
   m_Layer: 0
   m_Name: NoseCarrot
   m_TagString: Part
@@ -121,3 +122,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5078125
+--- !u!114 &-604407988777128172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3739840023103633090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc2b935ae0f141148839e0ded09304c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  durability: 5
+  attack: 0
+  speed: -20

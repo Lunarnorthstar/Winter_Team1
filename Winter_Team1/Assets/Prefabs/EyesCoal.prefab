@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6824624818477699404}
   - component: {fileID: -5777618498460353099}
   - component: {fileID: -3826911048662767375}
+  - component: {fileID: -4210890259615490307}
   m_Layer: 0
   m_Name: EyesCoal
   m_TagString: Part
@@ -121,3 +122,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2265625
+--- !u!114 &-4210890259615490307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8138041023432239749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc2b935ae0f141148839e0ded09304c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  durability: 10
+  attack: 0
+  speed: -15
