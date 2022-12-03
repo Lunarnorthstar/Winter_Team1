@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private GameObject[] arms;
     private bool grabbing = false;
 
+    public float jumpImpulse = 0;
     public float speed = 300;
     // Start is called before the first frame update
 
@@ -29,13 +30,19 @@ public class PlayerMovement : MonoBehaviour
             foreach (GameObject arm in arms)
             {
                 GameObject target = arm.GetComponent<HandScript>().target;
-                if(math.distance(arm.transform.position, target.transform.position) > 0.2)
+
+                if (target != null)
                 {
-                    target.transform.parent.GetComponent<Transform>().Translate( arm.transform.position - target.transform.position);
+                    if(math.distance(arm.transform.position, target.transform.position) > 0.2)
+                    {
+                        target.transform.parent.GetComponent<Transform>().Translate( arm.transform.position - target.transform.position);
 
-                    target.GetComponent<PartStatHandler>().durability -= arm.GetComponent<PartStatHandler>().attack * Time.fixedDeltaTime;
+                        target.GetComponent<PartStatHandler>().durability -= arm.GetComponent<PartStatHandler>().attack * Time.fixedDeltaTime;
 
+                    }
                 }
+                
+                
 
             }
         }
@@ -78,6 +85,14 @@ public class PlayerMovement : MonoBehaviour
         if (context.canceled)
         {
             grabbing = false;
+        }
+    }
+
+    public void Jump(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpImpulse));
         }
     }
 }

@@ -137,3 +137,5 @@ MonoBehaviour:
   durability: 10
   attack: 0
   speed: -15
+  particlePrefab: {fileID: 8044427176680151567, guid: 85ad95ab604127f4c9b5788fd47f2718, type: 3}
+  particleCount: 7

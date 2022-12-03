@@ -60,6 +60,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press(pressPoint=1)"
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "a270afa7-3fcc-49da-b9b8-3b0096075141",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(pressPoint=1)"
                 }
             ],
             "bindings": [
@@ -88,7 +96,7 @@
                 {
                     "name": "",
                     "id": "f97a087e-068b-4ef7-b800-cbb2364fdd55",
-                    "path": "<Gamepad>/rightTrigger",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -99,7 +107,7 @@
                 {
                     "name": "",
                     "id": "d0e305b0-9eab-40fc-b727-530d56702c38",
-                    "path": "<Gamepad>/leftTrigger",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -137,6 +145,17 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Grab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bfcca82f-bbf8-447a-bd69-0e2941500d12",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -50,7 +50,7 @@ public class SnowmanBuild : MonoBehaviour
 
 
         float totalHealth = 0;
-        float totalSpeed = 125;
+        float totalSpeed = 250;
         float totalAttack = 0;
         GameObject[] allParts = FindGameObjectsWithTags("Part", "Arm", "Glove");
         foreach (var part in allParts)
@@ -62,7 +62,7 @@ public class SnowmanBuild : MonoBehaviour
 
         totalSpeed /= 500;
         totalHealth /= 100;
-        totalAttack /= 100;
+        totalAttack /= 50;
         
         
         displayWeight.GetComponent<RectTransform>().localScale = new Vector3(partRatio, 1, 1);
@@ -105,15 +105,16 @@ public class SnowmanBuild : MonoBehaviour
                         newPart = Instantiate(partPrefabs[selectedPart], gameObject.transform); //Instantiate it.
                     }
                     newPart.transform.position = clickPos; //Move it
+                    newPart.transform.rotation = Quaternion.Euler(0, 0, 0);
                     newPart.transform.Rotate(0, 0, storedRotation); //Rotate it
                     newPart.GetComponent<SpriteRenderer>().flipX = flip; //Flip it
                     //Bop it. Uh, I mean...
-
-                    currentParts++; //Add one to the current parts
                     break; //Stop checking
                 }
                 //If not clicking inside a body segment, do nothing.
             }
+
+            currentParts = FindGameObjectsWithTags("Part", "Arm", "Glove").Length;
         }
 
 
@@ -135,13 +136,13 @@ public class SnowmanBuild : MonoBehaviour
                     //if clicking within the bounds of a part...
                 {
                     Destroy(placedParts[i]); //Remove it
-                    currentParts--; //Subtract one from the current parts
                     break; //Stop checking
                 }
                 //If not clicking on a part, do nothing.
             }
+            
         }
-        
+        currentParts = FindGameObjectsWithTags("Part", "Arm", "Glove").Length;
     }
     public void RotatePartClockwise(InputAction.CallbackContext context) //Extremely, incredibly stupid that I need to make two functions for this. The default input system has custom Axes.
     {

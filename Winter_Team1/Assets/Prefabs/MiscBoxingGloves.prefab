@@ -134,6 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc2b935ae0f141148839e0ded09304c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  durability: 5
+  durability: 3
   attack: 0
   speed: -30
+  particlePrefab: {fileID: 8044427176680151567, guid: 85ad95ab604127f4c9b5788fd47f2718, type: 3}
+  particleCount: 7
